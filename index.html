@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sri Janani S - Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(103, 126, 234, 0.1), transparent);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            50% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+            100% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header .subtitle {
+            font-size: 1.3rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #555;
+            font-size: 1rem;
+        }
+
+        .contact-item i {
+            color: #667eea;
+        }
+
+        /* Profile Section - Full Width */
+        .profile-section {
+            margin-bottom: 30px;
+            text-align: left;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            border: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .profile-section h2 {
+            margin-bottom: 25px;
+            font-size: 2rem;
+        }
+
+        .profile-section p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: #444;
+            text-indent: 2rem;
+            text-align: justify;
+        }
+
+        /* Main Grid */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section h2 i {
+            color: #667eea;
+            font-size: 1.5rem;
+        }
+
+        /* Education */
+        .education-item {
+            padding: 20px;
+            border-left: 4px solid #667eea;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, rgba(103, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .education-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 25px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #667eea;
+            box-shadow: 0 0 0 4px #fff;
+        }
+
+        .education-item h3 {
+            color: #667eea;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .education-item .year {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .education-item .details {
+            color: #555;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+        }
+
+        .skill-item {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 10px;
+            border-radius: 15px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 8px 20px rgba(103, 126, 234, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-item:hover {
+            transform: scale(1.05);
+        }
+
+        /* Projects */
+        .project-item {
+            background: linear-gradient(135deg, rgba(103, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(103, 126, 234, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .project-item:hover {
+            border-color: #667eea;
+            background: linear-gradient(135deg, rgba(103, 126, 234, 0.15), rgba(118, 75, 162, 0.15));
+        }
+
+        .project-item h3 {
+            color: #667eea;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .project-date {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .project-description {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* Experience */
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .experience-item {
+            background: linear-gradient(135deg, rgba(103, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+            border-radius: 15px;
+            padding: 25px;
+            border-left: 4px solid #764ba2;
+            transition: all 0.3s ease;
+        }
+
+        .experience-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(118, 75, 162, 0.15);
+        }
+
+        .experience-item h3 {
+            color: #764ba2;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .company {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .duration {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        /* Languages & Achievements */
+        .languages {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .language-item {
+            background: linear-gradient(135deg, #764ba2, #667eea);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .achievement-item {
+            background: linear-gradient(135deg, rgba(118, 75, 162, 0.1), rgba(103, 126, 234, 0.1));
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(118, 75, 162, 0.2);
+        }
+
+        .achievement-item h4 {
+            color: #764ba2;
+            margin-bottom: 5px;
+        }
+
+        .achievement-date {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* Full width sections */
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        /* Publication */
+        .publication-item {
+            background: linear-gradient(135deg, rgba(103, 126, 234, 0.08), rgba(118, 75, 162, 0.08));
+            border-radius: 15px;
+            padding: 25px;
+            border: 2px solid rgba(103, 126, 234, 0.2);
+            text-align: center;
+        }
+
+        .publication-item h3 {
+            color: #667eea;
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        .journal-name {
+            color: #764ba2;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .doi {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .header {
+                padding: 30px 20px;
+            }
+
+            .header h1 {
+                font-size: 2.2rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+                gap: 10px;
+            }
+
+            .languages {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+            }
+
+            .section {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .profile-img {
+                width: 120px;
+                height: 120px;
+                font-size: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <div class="profile-img">
+                <i class="fas fa-user-graduate"></i>
+            </div>
+            <h1>Sri Janani S</h1>
+            <div class="subtitle">Computer Science Graduate & M.Tech Student</div>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>9500######</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>srijanani2073@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Chennai</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Section -->
+        <div class="section profile-section">
+            <h2><i class="fas fa-user"></i> About Me</h2>
+            <p>Enthusiastic and driven Computer Science graduate, eager to advance my career in the technology industry. Currently pursuing M.Tech in Computer Science Engineering. A proactive learner with a collaborative mindset, ready to embrace challenges and contribute to team success in delivering impactful technology solutions. Excellent listener comfortable completing various tasks to keep operations running smoothly.</p>
+        </div>
+
+        <div class="main-grid">
+
+            <!-- Education Section -->
+            <div class="section">
+                <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+                <div class="education-item">
+                    <h3>M.Tech - Computer Science Engineering</h3>
+                    <div class="year">2025 - 2027</div>
+                    <div class="details">Amrita Vishwa Vidyapeetham, Coimbatore</div>
+                </div>
+                <div class="education-item">
+                    <h3>B.E - Computer Science Engineering</h3>
+                    <div class="year">2021 - 2025</div>
+                    <div class="details">Sri Venkateswara College of Engineering, Sriperumbudur<br>
+                    <strong>CGPA: 8.419</strong></div>
+                </div>
+                <div class="education-item">
+                    <h3>Higher Secondary (XII)</h3>
+                    <div class="year">2020 - 2021</div>
+                    <div class="details">St. Joseph's Anglo-Indian Girls' Higher Secondary School<br>
+                    <strong>91.2%</strong></div>
+                </div>
+                <div class="education-item">
+                    <h3>Secondary (X)</h3>
+                    <div class="year">2018 - 2019</div>
+                    <div class="details">St. Joseph's Anglo-Indian Girls' Higher Secondary School<br>
+                    <strong>94%</strong></div>
+                </div>
+            </div>
+
+            <!-- Technical Skills Section -->
+            <div class="section">
+                <h2><i class="fas fa-code"></i> Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-item">C++</div>
+                    <div class="skill-item">Java</div>
+                    <div class="skill-item">Python</div>
+                    <div class="skill-item">HTML</div>
+                    <div class="skill-item">CSS</div>
+                    <div class="skill-item">JavaScript</div>
+                    <div class="skill-item">MySQL</div>
+                    <div class="skill-item">Node.js</div>
+                </div>
+            </div>
+
+            <!-- Experience Section -->
+            <div class="section full-width">
+                <h2><i class="fas fa-briefcase"></i> Experience</h2>
+                <div class="experience-grid">
+                    <div class="experience-item">
+                        <h3>Machine Learning Intern</h3>
+                        <div class="company">Exposys Data Labs</div>
+                        <div class="duration">December 2023 - January 2024</div>
+                    </div>
+                    <div class="experience-item">
+                        <h3>Web Development Intern</h3>
+                        <div class="company">Exposys Data Labs</div>
+                        <div class="duration">June 2023 - July 2023</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projects Section -->
+            <div class="section full-width">
+                <h2><i class="fas fa-project-diagram"></i> Projects</h2>
+                <div class="project-item">
+                    <h3>AI Powered Road Safety System using YOLOv8</h3>
+                    <div class="project-date">March 2025</div>
+                    <div class="project-description">
+                        Developed an AI model that recognizes various traffic violations like no helmet, no seatbelt, using mobile phone, triple riding from traffic cameras. The license plate of recognized offenders is captured and their details are retrieved from RTO database which is used to send e-challans to the offenders' contact details as SMS and Email to reduce paper waste and save manpower.
+                    </div>
+                </div>
+                <div class="project-item">
+                    <h3>Multilingual Sentiment Classification</h3>
+                    <div class="project-date">August 2024</div>
+                    <div class="project-description">
+                        Developed a ML model that classifies audio into one of the 7 emotions from any of the four languages: English, Kannada, Bengali and Kannada. Model achieved an accuracy of 92% and was implemented using LSTM and CNN layers.
+                    </div>
+                </div>
+                <div class="project-item">
+                    <h3>MediSmart</h3>
+                    <div class="project-date">September 2023</div>
+                    <div class="project-description">
+                        Developed an AI model that streamlines booking appointments for patients based on doctor availability, symptoms, patient preferences and location. It involved providing doctors with RFID tags for updating availability in the database.
+                    </div>
+                </div>
+                <div class="project-item">
+                    <h3>Mass Mail Dispatcher</h3>
+                    <div class="project-date">June 2023</div>
+                    <div class="project-description">
+                        Developed a web application that validates and displays email addresses from a .csv file and obtains sender email address, password and body and media from user and dispatches it. It was implemented using Flask, SMTP, MIME and MarkupSafe in a virtual environment.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Languages -->
+            <div class="section">
+                <h2><i class="fas fa-language"></i> Languages</h2>
+                <div class="languages">
+                    <div class="language-item">English</div>
+                    <div class="language-item">Tamil</div>
+                    <div class="language-item">Kannada</div>
+                </div>
+            </div>
+
+            <!-- Certifications & Achievements -->
+            <div class="section">
+                <h2><i class="fas fa-trophy"></i> Certifications & Achievements</h2>
+                <div class="achievement-item">
+                    <h4>GATE - Valid Score</h4>
+                    <div class="achievement-date">2025</div>
+                </div>
+                <div class="achievement-item">
+                    <h4>Internet of Things - NPTEL IITK</h4>
+                    <div class="achievement-date">January 2024 | 94%</div>
+                </div>
+                <div class="achievement-item">
+                    <h4>Deep Learning Course - NVIDIA DLI</h4>
+                    <div class="achievement-date">March 2024</div>
+                </div>
+            </div>
+
+            <!-- Published Work -->
+            <div class="section full-width">
+                <h2><i class="fas fa-file-alt"></i> Published Work</h2>
+                <div class="publication-item">
+                    <h3>Multilingual sentiment classification of audio using VGGish and LSTM models</h3>
+                    <div class="journal-name">Journal of Intelligent and Fuzzy Systems</div>
+                    <div class="project-date">Published on June 17, 2025</div>
+                    <div class="doi">DOI: 10.1177/18758967251345859</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
